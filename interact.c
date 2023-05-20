@@ -1,3 +1,9 @@
+/*
+ * File: interact.c
+ * Auth: Falope Oluwaseun
+ *       Darlington Ebom
+ */
+
 #include "shell.h"
 
 /**
@@ -6,6 +12,7 @@
  *
  * Return: 1 if interactive mode, 0 otherwise
  */
+
 int is_interactive(info_t *info)
 {
 	int is_tty = isatty(STDIN_FILENO);
@@ -21,6 +28,7 @@ int is_interactive(info_t *info)
  *
  * Return: 1 if true , 0 otherwise
  */
+
 int is_delimiter(char c, char *delim)
 {
 	while (*delim != '\0')
@@ -38,6 +46,7 @@ int is_delimiter(char c, char *delim)
  *
  * Return: 1 if c is alphabetic, 0 otherwise
  */
+
 int is_alpha(int c)
 {
 	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
@@ -49,6 +58,7 @@ int is_alpha(int c)
  *
  * Return: the converted integer, or 0 if no numbers in the string
  */
+
 int string_to_integer(char *s)
 {
 	int sign = 1;
