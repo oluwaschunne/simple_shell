@@ -22,14 +22,14 @@ int exit_shell(info_t *info)
 			print_error(info, "Illegal number: ");
 			_eputs(info->argv[1]);
 			_eputchar('\n');
-			return 0;
+			return (0);
 		}
 		info->err_num = exit_code;
 	}
 	else
 		info->err_num = -1;
 
-	return 1;
+	return (1);
 }
 
 /**
@@ -57,13 +57,13 @@ int change_directory(info_t *info)
 		print_error(info, "Unable to change directory to: ");
 		_eputs(info->argv[1]);
 		_eputchar('\n');
-		return 1;
+		return (1);
 	}
 
 	_setenv(info, "OLDPWD", _getenv(info, "PWD="));
 	_setenv(info, "PWD", getcwd(buffer, 1024));
 
-	return 0;
+	return (0);
 }
 
 /**
@@ -75,6 +75,6 @@ int change_directory(info_t *info)
 int display_help(info_t *info)
 {
 	_puts("Help information goes here.\n");
-	return 0;
+	return (0);
 }
 

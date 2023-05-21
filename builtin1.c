@@ -1,3 +1,9 @@
+/*
+ * File: builtin1.c.c
+ * Auth: Falope Oluwaseun
+ *       Darlington Ebom
+ */
+
 #include "shell.h"
 
 /**
@@ -5,6 +11,7 @@
  * @info: Structure containing potential arguments.
  * Return: Always 0
  */
+
 int history_command(info_t *info)
 {
 	print_list(info->history);
@@ -17,6 +24,7 @@ int history_command(info_t *info)
  * @alias: The alias string to remove.
  * Return: always 0 on success, 1 on error.
  */
+
 int unset_alias(info_t *info, char *alias)
 {
 	char *equal_ptr, equal_char;
@@ -42,6 +50,7 @@ int unset_alias(info_t *info, char *alias)
  * @alias: The alias string to set.
  * Return: 0 on success, 1 on error.
  */
+
 int set_alias(info_t *info, char *alias)
 {
 	char *equal_ptr;
@@ -62,6 +71,7 @@ int set_alias(info_t *info, char *alias)
  * @alias_node: The alias node to print.
  * Return: Always 0 on success, 1 on error.
  */
+
 int print_alias(list_t *alias_node)
 {
 	char *equal_ptr = NULL, *alias_value = NULL;
@@ -76,6 +86,7 @@ int print_alias(list_t *alias_node)
 		_puts("'\n");
 		return (0);
 	}
+
 	return (1);
 }
 
@@ -84,6 +95,7 @@ int print_alias(list_t *alias_node)
  * @info: Structure containing potential arguments.
  * Return: Always 0
  */
+
 int alias_command(info_t *info)
 {
 	int i;
