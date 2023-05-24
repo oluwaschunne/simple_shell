@@ -40,7 +40,7 @@ char *find_env_variable(info_t *info, const char *name)
 	{
 		p = strstr(node->str, name);
 		if (p && p == node->str && p[strlen(name)] == '=')
-			return p + strlen(name) + 1;
+			return (p + strlen(name) + 1);
 		node = node->next;
 	}
 	return (NULL);

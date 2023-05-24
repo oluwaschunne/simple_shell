@@ -1,7 +1,7 @@
 /*
  * File: builtins.c
  * Auth: Falope Oluwaseun
- * 	 Darlington Ebom
+ *	 Darlington Ebom
  */
 
 #include "shell.h"
@@ -17,6 +17,7 @@ int exit_shell(info_t *info)
 	if (info->argv[1])
 	{
 		int exit_code = _erratoi(info->argv[1]);
+
 		if (exit_code == -1)
 		{
 			print_error(info, "Illegal number: ");
