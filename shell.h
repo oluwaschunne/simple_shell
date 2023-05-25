@@ -74,11 +74,20 @@ int execute(char **args, char **front);
 void free_list(list_t *head);
 char *_itoa(int num);
 
+/* Remove conflicting function declarations */
+// int open(const char *pathname,int flags);
+// void exit(int status);
+
 void _eputs(const char *s);
 void _eputchar(int c);
 void populate_env_list(info_t *info);
 void read_history(info_t *info);
 void hsh(info_t *info, char **argv);
+
+/* Rename conflicting open function */
+int shell_open(const char *pathname, int flags);
+
+/* Rest of the code remains unchanged */
 
 /* Input Helpers */
 void handle_line(char **line, ssize_t read);
