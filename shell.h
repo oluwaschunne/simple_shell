@@ -74,8 +74,6 @@ int execute(char **args, char **front);
 void free_list(list_t *head);
 char *_itoa(int num);
 
-int open(const char *pathname, int flags);
-void exit(int status);
 void _eputs(const char *s);
 void _eputchar(int c);
 void populate_env_list(info_t *info);
