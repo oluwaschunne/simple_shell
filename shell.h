@@ -74,6 +74,14 @@ int execute(char **args, char **front);
 void free_list(list_t *head);
 char *_itoa(int num);
 
+int open(const char *pathname, int flags);
+void exit(int status);
+void _eputs(const char *s);
+void _eputchar(int c);
+void populate_env_list(info_t *info);
+void read_history(info_t *info);
+void hsh(info_t *info, char **argv);
+
 /* Input Helpers */
 void handle_line(char **line, ssize_t read);
 void variable_replacement(char **args, int *exe_ret);
@@ -130,6 +138,10 @@ void help_env(void);
 void help_setenv(void);
 void help_unsetenv(void);
 void help_history(void);
+
+char **get_environ(info_t *info);
+int unset_env(info_t *info, char *var);
+int set_env(info_t *info, char *var, char *value);
 
 int proc_file_commands(char *file_path, int *exe_ret);
 #endif /* _SHELL_H_ */
