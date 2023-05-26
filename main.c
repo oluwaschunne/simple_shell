@@ -8,42 +8,43 @@
 
 /**
  * main - entry point
- * @argc: arg count
- * @argv: arg vector
+ * @ac:Argument count
+ * @av:Argument vector
  *
- * Return: 0 on success, 1 on error
+ * Return:0 on success, 1 on error
  */
-int main(int argc, char **argv)
+int main(int ac, char **av)
 {
-	const int ERROR_ACCESS = 126;
-	const int ERROR_NOENT = 127;
-	info_t info_list[] = { INFO_INIT };
-	int file_descriptor = 2;
-	/* Modify the file descriptor by adding 3 to its value */
-	file_descriptor += 3;
-	if (argc == 2)
-	{
-		int fd = open(argv[1], O_RDONLY);
+	info_t info[] = { INFO_INIT };
+	int fd = 2;
 
+	asm ("mov %1, %0\n\t"
+			"add $3, %0"
+			: "=r" (fd)
+			: "r" (fd));
+
+	if (ac == 2)
+	{
+		fd = open(av[1], O_RDONLY);
 		if (fd == -1)
 		{
 			if (errno == EACCES)
-				exit(ERROR_ACCESS);
+				exit(126);
 			if (errno == ENOENT)
 			{
-				eputs(argv[0]);
+				_eputs(av[0]);
 				_eputs(": 0: Can't open ");
-				_eputs(argv[1]);
+				_eputs(av[1]);
 				_eputchar('\n');
 				_eputchar(BUF_FLUSH);
-				exit(ERROR_NOENT);
+				exit(127);
 			}
 			return (EXIT_FAILURE);
 		}
-		info_list->readfd = fd;
+		info->readfd = fd;
 	}
-	populate_env_list(info_list);
-	read_history(info_list);
-	hsh(info_list, argv);
+	populate_env_list(info);
+	read_history(info);
+	hsh(info, av);
 	return (EXIT_SUCCESS);
 }
