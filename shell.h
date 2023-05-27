@@ -24,10 +24,10 @@
 #define BUF_FLUSH -1
 
 /* command chaining types */
-#define CMD_NORM0
+#define CMD_NORM 0
 #define CMD_OR	1
 #define CMD_AND	2
-#define CMD_CHAIN3
+#define CMD_CHAIN 3
 
 /*Convert number types */
 #define CONVERT_LOWERCASE1
