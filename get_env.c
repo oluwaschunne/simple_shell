@@ -75,12 +75,12 @@ int _setenv(info_t *info, char *var, char *value)
 	if (!var || !value)
 		return (0);
 
-	buf = malloc(_strlen(var) + _strlen(value) + 2);
+	buf = malloc(str_len(var) + str_len(value) + 2);
 	if (!buf)
 		return (1);
 	_strcpy(buf, var);
-	_strcat(buf, "=");
-	_strcat(buf, value);
+	str_cat(buf, "=");
+	str_cat(buf, value);
 	node = info->env;
 	while (node)
 	{
