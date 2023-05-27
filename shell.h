@@ -144,7 +144,7 @@ char *starts_with(const char *, const char *);
 char *str_cat(char *, char *);
 
 /* toem_string1.c */
-char *_strcpy(char *, char *);
+char *str_cpy(char *, char *);
 char *_strdup(const char *);
 void _puts(char *);
 int _putchar(char);
@@ -198,12 +198,12 @@ void clear_info(info_t *);
 void set_info(info_t *, char **);
 void free_info(info_t *, int);
 
-/* toem_environ.c */
-char *_getenv(info_t *, const char *);
-int _myenv(info_t *);
-int _mysetenv(info_t *);
-int _myunsetenv(info_t *);
-int populate_env_list(info_t *);
+/* toem_print_env.c */
+int print_env(info_t *info);
+char *find_env_variable(info_t *info, const char *name);
+int set_env_variable(info_t *info);
+int unset_env_variable(info_t *info);
+int populate_env_list(info_t *info);
 
 /* toem_getenv.c */
 char **get_environ(info_t *);
