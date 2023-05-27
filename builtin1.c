@@ -1,5 +1,5 @@
 /*
- * File: builtin1.c.c
+ * File: builtin1.c
  * Auth: Falope Oluwaseun
  *       Darlington Ebom
  */
