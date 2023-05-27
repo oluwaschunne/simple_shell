@@ -60,11 +60,11 @@ int find_builtin(info_t *info)
 		{"exit", _myexit},
 		{"env", print_env},
 		{"help", _myhelp},
-		{"history", _myhistory},
+		{"history", history_command},
 		{"setenv", set_env_variable},
 		{"unsetenv", unset_env_variable},
 		{"cd", _mycd},
-		{"alias", _myalias},
+		{"alias", alias_command},
 		{NULL, NULL}
 	};
 
