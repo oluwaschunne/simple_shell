@@ -1,5 +1,6 @@
 #include "shell.h"
-i
+#define CONVERT_UNSIGNED 0x01
+#define CONVERT_LOWERCASE 0x02
 
 /**
  * _erratoi - Converts a string to an integer.
@@ -112,7 +113,7 @@ char *convert_number(long int num, int base, int flags)
 		sign = '-';
 
 	}
-	array = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
+	array = flags & CONVERT_LOWERCASE ?  "0123456789abcdef" : "0123456789ABCDEF";
 	ptr = &buffer[49];
 	*ptr = '\0';
 
