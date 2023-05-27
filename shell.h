@@ -124,7 +124,7 @@ void find_cmd(info_t *);
 void fork_cmd(info_t *);
 
 /* toem_parser.c */
-int is_cmd(info_t*, char);
+int is_cmd(info_t*, char *);
 char *dup_chars(char*, int, int);
 char *find_path(info_t*, char*, char*);
 

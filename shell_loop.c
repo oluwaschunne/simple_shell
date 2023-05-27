@@ -58,18 +58,18 @@ int find_builtin(info_t *info)
 	int i, built_in_ret = -1;
 	builtin_table builtintbl[] = {
 		{"exit", _myexit},
-		{"env", _myenv},
+		{"env", print_env},
 		{"help", _myhelp},
 		{"history", _myhistory},
-		{"setenv", _mysetenv},
-		{"unsetenv", _myunsetenv},
+		{"setenv", set_env_variable},
+		{"unsetenv", unset_env_variable},
 		{"cd", _mycd},
 		{"alias", _myalias},
 		{NULL, NULL}
 	};
 
 	for (i = 0; builtintbl[i].type; i++)
-		if (_strcmp(info->argv[0], builtintbl[i].type) == 0)
+		if (str_cmp(info->argv[0], builtintbl[i].type) == 0)
 		{
 			info->line_count++;
 			built_in_ret = builtintbl[i].func(info);
@@ -101,7 +101,7 @@ void find_cmd(info_t *info)
 	if (!k)
 		return;
 
-	path = find_path(info, _getenv(info, "PATH="), info->argv[0]);
+	path = find_path(info, find_env_variable(info, "PATH="), info->argv[0]);
 	if (path)
 	{
 		info->path = path;
@@ -109,7 +109,7 @@ void find_cmd(info_t *info)
 	}
 	else
 	{
-		if ((interactive(info) || _getenv(info, "PATH=")
+		if ((interactive(info) || find_env_variable(info, "PATH=")
 					|| info->argv[0][0] == '/') && is_cmd(info, info->argv[0]))
 			fork_cmd(info);
 		else if (*(info->arg) != '\n')
